@@ -11,6 +11,7 @@ rm -rf build;mkdir build;cd build;cmake \
 -DCMAKE_CXX_COMPILER=clang++ \
 -DCMAKE_PREFIX_PATH="$PWD/libtorch;/usr/local/Cellar/hdf5/1.12.0" ..;make VERBOSE=1;cd ..
 
+./build/src
 
 -------------------------------------------------------------------------------------------------
 

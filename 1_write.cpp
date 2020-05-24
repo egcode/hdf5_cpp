@@ -6,35 +6,12 @@
 
 /*
 
-find_package(HDF5 COMPONENTS C CXX HL REQUIRED)
-link_directories( ${HDF5_LIBRARY_DIRS} )
-include_directories( ${HDF5_INCLUDE_DIRS} )
-add_executable( convert_to_hdf5 src/convert_to_hdf5.cpp )
-target_link_libraries( convert_to_hdf5 ${HDF5_CXX_LIBRARIES} )
-
-
 rm -rf build;mkdir build;cd build;cmake \
 -DCMAKE_C_COMPILER=clang \
 -DCMAKE_CXX_COMPILER=clang++ \
 -DCMAKE_PREFIX_PATH="$PWD/libtorch;/usr/local/Cellar/hdf5/1.12.0" ..;make VERBOSE=1;cd ..
 
-
-
--------------------------------------------------------------------------------------------------
-
-
-    =====================================
-    *** Mean embedding h5 file structure:
-    person1_name
-        embedding    [4.5, 2.1, 9.9]
-    person2_name
-        embedding    [3.0, 41.1, 56.621]
-    =====================================
-
-    Parameters;
-        h5_filename='data/dataset.h5'
-        person_name='Alex'
-        mean_embedding=[-1.40146054e-02,  2.31648367e-02, -8.39150697e-02......]
+./build/src
 
 */
 #define MAX_NAME_LENGTH 32
