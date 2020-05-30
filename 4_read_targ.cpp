@@ -77,7 +77,20 @@ int main(void)
         cout << "Extracted group Names: \n";
         for (int i=0; i<groupNames.size();i++ )
         {
-            cout << "\textracted name: " << groupNames[i] << endl;
+            cout << "  extracted name: " << groupNames[i] << endl;
+
+            H5std_string groupName( groupNames[i] );
+
+            Group* group = new Group(file->openGroup(groupName));
+
+            DataSet* dataset;
+            try {  // to determine if the dataset exists in the group
+                 dataset = new DataSet( group->openDataSet( "embedding" ));
+            }
+            catch( GroupIException not_found_error ) {
+                cout << "\t ERROR: Dataset is not found." << endl;
+            }
+            
         }
 
         /*
