@@ -77,7 +77,7 @@ int main(void)
         cout << "Extracted group Names: \n";
         for (int i=0; i<groupNames.size();i++ )
         {
-            cout << "  extracted name: " << groupNames[i] << endl;
+            cout << "\n\n  extracted name: " << groupNames[i] << endl;
 
             H5std_string groupName( groupNames[i] );
 
@@ -96,8 +96,12 @@ int main(void)
             double  embedding[512]; /* output buffer */
             dataset->read(embedding, PredType::NATIVE_DOUBLE);
 
-            cout << "\t\tDATA from "<< groupNames[i] << " : " << embedding[0] << endl;
-
+            // Loop through 10 example values
+            for( unsigned int a = 0; a < 10; a = a + 1 )
+            {
+                cout << embedding[a] << ", ";
+            }
+          
         }
 
         /*
