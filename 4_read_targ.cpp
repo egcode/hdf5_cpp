@@ -89,8 +89,15 @@ int main(void)
             }
             catch( GroupIException not_found_error ) {
                 cout << "\t ERROR: Dataset is not found." << endl;
+                return 0;
             }
             
+            // Read Embed
+            double  embedding[512]; /* output buffer */
+            dataset->read(embedding, PredType::NATIVE_DOUBLE);
+
+            cout << "\t\tDATA from "<< groupNames[i] << " : " << embedding[0] << endl;
+
         }
 
         /*
